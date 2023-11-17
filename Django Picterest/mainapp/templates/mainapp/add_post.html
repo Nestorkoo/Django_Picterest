@@ -1,0 +1,19 @@
+{% extends 'mainapp/layout.html'%}
+{% block title%}
+Piktorest | Add post page
+{% endblock%}
+{% block content %}
+<div class="form-container">
+    <form class="post_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.name}}
+        {{form.photo}} <br>
+        <label>Виберіть категорію</label>{{form.category}}
+        {{form.description}} <br>
+        <span class="error">{{error}}</span>
+        <button type="submit" class="form-submit"> Send data</button>
+    </form>
+</div>
+{% for pic in pictures %}
+{% endfor %}
+{% endblock%}

@@ -1,0 +1,22 @@
+{% extends 'mainapp/layout.html' %}
+
+{% block content %}
+<div class="box_half_card">
+  <div class="left_block">
+    <img src="{{ picture.photo.url }}" alt="" class="picture">
+  </div>
+  <div class="right_block">
+    <p class="description"> {{picture.description}}</p>
+  </div>
+</div>
+<h2 class="text_more_details">More interested</h2>
+
+{% for related_post in related_posts %}
+<div class="container_for_card">
+  <a href="{% url 'picture_detail' photo_id=related_post.pk %}">
+  <img src="{{ related_post.photo.url }}" alt="{{ related_post.name }}" class="card_image">
+  </a>
+</div>
+{% endfor %}
+
+{% endblock %}

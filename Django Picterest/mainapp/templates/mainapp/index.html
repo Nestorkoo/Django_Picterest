@@ -1,0 +1,14 @@
+{% extends 'mainapp/layout.html'%}
+{% block title%}
+Piktorest | Home page
+{% endblock%}
+
+{% block content %}
+{% for pic in pictures %}
+<div class="container_for_card">
+    <a href="{{ pic.get_absolute_url }}">
+        <img  class="card_image" src="{{ pic.photo.url }}">
+    </a>
+</div>
+{% endfor %}
+{% endblock%}
